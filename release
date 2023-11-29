@@ -1,0 +1,12 @@
+#!/bin/sh
+# Pull from the game repository.
+git clone https://github.com/isangeles-softworks/openelwynn &&
+# Build the game.
+cd openelwynn &&
+make build &&
+# Create build artifact.
+# Build name contains version for VERSION file, date string, and os + arch info from uname.
+buildName=openelwynn_$(cat VERSION)_$(date '+%Y%m%d')_$(uname | awk '{print tolower($0)}')_$(uname -m).tar.gz &&
+tar -czvf ../$buildName . &&
+# Upload to the release server.
+curl -u $1:$2 -T ../$buildName https://my.opendesktop.org/remote.php/dav/files/isangeles/openelwynn/release/
