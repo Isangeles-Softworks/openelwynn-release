@@ -17,6 +17,11 @@ For Linux/macOS:
 ./release user password
 ```
 
+For Windows(using PowerShell):
+```
+./release.ps1 -login user -pass password
+```
+
 After that, the released game package will be available [here](https://my.opendesktop.org/s/H4w5fXbfW7ZETsk).
 
 ## Contact
