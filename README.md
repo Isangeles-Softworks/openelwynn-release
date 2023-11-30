@@ -21,6 +21,10 @@ For Windows(using PowerShell):
 ```
 ./release.ps1 -login user -pass password
 ```
+Note that you may need to change execution policy first:
+```
+Set-ExecutionPolicy RemoteSigned
+```
 
 After that, the released game package will be available [here](https://my.opendesktop.org/s/H4w5fXbfW7ZETsk).
 

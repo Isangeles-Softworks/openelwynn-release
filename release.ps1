@@ -7,10 +7,15 @@ param(
 git clone https://github.com/isangeles-softworks/openelwynn
 # Build the game.
 cd openelwynn
-make buildName
+make build
 # Create build artifact.
 # Build name contains version for VERSION file, date string, and os + arch info from uname.
 $buildName = "openelwynn_$(type VERSION)_$(Get-Date -Format "yyyyMMdd")_windows_amd64.zip"
 Compress-Archive -Path ./* -CompressionLevel Fastest -DestinationPath ../$($buildName)
 # Upload to the release server.
-curl -u $login":"$pass -T "../$buildName" https://my.opendesktop.org/remote.php/dav/files/isangeles/openelwynn/release/
+$creds = [System.Convert]::ToBase64String([System.Text.Encoding]::ASCII.GetBytes("$($login):$($pass)"))
+$headers = @{
+    Authorization = "Basic $creds";
+}
+$body = "file=$(get-content ../$buildName -raw)"
+Invoke-WebRequest -Uri "https://my.opendesktop.org/remote.php/dav/files/isangeles/openelwynn/release/$buildName" -Method PUT -InFile ../$buildName -ContentType "application/octet-stream" -Headers $headers
