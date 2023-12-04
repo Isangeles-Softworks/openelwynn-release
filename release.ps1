@@ -9,7 +9,7 @@ git clone https://github.com/isangeles-softworks/openelwynn
 cd openelwynn
 make build
 # Create build artifact.
-# Build name contains version for VERSION file, date string, and os + arch info from uname.
+# Build name contains version from VERSION file, date string, and os + arch info.
 $buildName = "openelwynn_$(type VERSION)_$(Get-Date -Format "yyyyMMdd")_windows_amd64.zip"
 Compress-Archive -Path ./* -CompressionLevel Fastest -DestinationPath ../$($buildName)
 # Upload to the release server.
