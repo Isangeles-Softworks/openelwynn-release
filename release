@@ -8,5 +8,8 @@ make build &&
 # Build name contains version from VERSION file, date string, and os + arch info from uname.
 buildName=openelwynn_$(cat VERSION)_$(date '+%Y%m%d')_$(uname | awk '{print tolower($0)}')_$(uname -m).tar.gz &&
 tar -czvf ../$buildName . &&
+# Cleanup.
+cd .. &&
+rm -rf openelwynn
 # Upload to the release server.
-curl -u $1:$2 -T ../$buildName https://my.opendesktop.org/remote.php/dav/files/isangeles/openelwynn/release/
+curl -u $1:$2 -T ./$buildName https://my.opendesktop.org/remote.php/dav/files/isangeles/openelwynn/release/
