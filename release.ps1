@@ -14,7 +14,7 @@ $buildName = "openelwynn_$(type VERSION)_$(Get-Date -Format "yyyyMMdd")_windows_
 Compress-Archive -Path ./* -CompressionLevel Fastest -DestinationPath ./$($buildName)
 # Cleanup.
 cd ..
-rm -rf openelwynn
+Remove-Item -Force -Recurse -Path "openelwynn"
 # Upload to the release server.
 $creds = [System.Convert]::ToBase64String([System.Text.Encoding]::ASCII.GetBytes("$($login):$($pass)"))
 $headers = @{
