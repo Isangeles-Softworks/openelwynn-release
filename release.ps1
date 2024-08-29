@@ -11,7 +11,7 @@ make build
 # Create build artifact.
 # Build name contains version from VERSION file, date string, and os + arch info.
 $buildName = "openelwynn_$(type VERSION)_$(Get-Date -Format "yyyyMMdd")_windows_x86_64.zip"
-Compress-Archive -Path ./* -CompressionLevel Fastest -DestinationPath ./$($buildName)
+Compress-Archive -Path ./* -CompressionLevel Fastest -DestinationPath ../$($buildName)
 # Cleanup.
 cd ..
 Remove-Item -Force -Recurse -Path "openelwynn"
