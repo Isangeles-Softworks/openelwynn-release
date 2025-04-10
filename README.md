@@ -32,7 +32,7 @@ After that, the released game package will be available [here](https://my.opende
 * Isangeles <<ds@isangeles.dev>>
 
 ## License
-Copyright 2023-2024 Isangeles Softworks <<softworks@isangeles.dev>>
+Copyright 2023-2025 Isangeles Softworks <<softworks@isangeles.dev>>
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
