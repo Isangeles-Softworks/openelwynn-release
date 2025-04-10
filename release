@@ -12,4 +12,4 @@ tar -czvf ../$buildName . &&
 cd .. &&
 rm -rf openelwynn
 # Upload to the release server.
-curl -u $1:$2 -T ./$buildName https://my.opendesktop.org/remote.php/dav/files/isangeles/openelwynn/release/
+curl -u $2:$4 -T ./$buildName https://my.opendesktop.org/remote.php/dav/files/isangeles/openelwynn/release/
